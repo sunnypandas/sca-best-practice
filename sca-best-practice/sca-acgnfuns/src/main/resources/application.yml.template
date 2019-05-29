@@ -1,0 +1,74 @@
+server:
+  port: 10001
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+spring:
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    password: 123456
+  application:
+    name: acgnfuns
+  cloud:
+    sentinel:
+      transport:
+        dashboard: 127.0.0.1:8080
+      eager: true
+      datasource:
+#        userCenterFlow:
+#          file:
+#            file: 'classpath: flowrule.json'
+#            data-type: json
+#            rule-type: flow
+        ds:
+          nacos:
+            server-addr: 127.0.0.1:8848
+            dataId: ${spring.application.name}-flow-rules
+            groupId: SENTINEL_GROUP
+            data-type: json
+            rule-type: flow
+    stream:
+      rocketmq:
+        binder:
+          name-server: 127.0.0.1:9876
+      bindings:
+        output:
+          destination: test-topic
+          content-type: application/json
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+  jpa:
+    hibernate.naming.physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    hibernate.ddl-auto: update
+    generate-ddl: true
+    show-sql: true
+    properties.hibernate.format_sql: true
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/homestead?characterEncoding=utf8&useSSL=false
+    username: root
+    password: 123456
+    # 使用druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    druid:
+      filters: stat
+      maxActive: 20
+      initialSize: 1
+      maxWait: 60000
+      minIdle: 1
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: select 'x'
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxOpenPreparedStatements: 20
+feign:
+  sentinel:
+    enabled: true
