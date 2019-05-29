@@ -1,4 +1,4 @@
-# SCA Best Practice
+# HanLP microservice
 
 本项目基于https://github.com/alibaba/sca-best-practice， 环境配置请参照该项目。项目将hanlp提供的多数接口进行了封装微服务化。
 
