@@ -103,9 +103,9 @@ public class HanlpController {
         return hanlpService.newWordDiscover(content, size);
     }
 
-    @RequestMapping(value = "/normalization", method = RequestMethod.POST)
-    public List<List<Term>> normalization(@RequestParam String text) {
-        return hanlpService.normalization(text);
+    @RequestMapping(value = "/notionalTokenizer", method = RequestMethod.POST)
+    public List<List<Term>> notionalTokenizer(@RequestParam String text) {
+        return hanlpService.notionalTokenizer(text);
     }
 
     @RequestMapping(value = "/numberAndQuantifierRecognition", method = RequestMethod.POST)
