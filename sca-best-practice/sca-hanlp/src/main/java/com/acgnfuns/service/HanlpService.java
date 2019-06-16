@@ -174,7 +174,7 @@ public class HanlpService {
      * 演示自动去除停用词、自动断句的分词器
      * @author sunpanpan
      */
-    public List<List<Term>> normalization(String text) {
+    public List<List<Term>> notionalTokenizer(String text) {
         return NotionalTokenizer.seg2sentence(text);
     }
 
@@ -188,7 +188,7 @@ public class HanlpService {
     }
 
     /**
-     * 演示数词和数量词识别
+     * 演示词共现统计
      * @author sunpanpan
      */
     public Map<String, Object> occurrence(String text) {
@@ -215,7 +215,7 @@ public class HanlpService {
     }
 
     /**
-     * 汉字转拼音
+     * 短语提取
      * @author sunpanpan
      */
     public List<String> phraseExtractor(String text, Integer size) {
@@ -223,7 +223,7 @@ public class HanlpService {
     }
 
     /**
-     * 短语提取
+     * 汉字转拼音
      * @author sunpanpan
      */
     public List<Pinyin> pinyin(String text) {
@@ -339,7 +339,7 @@ public class HanlpService {
     }
 
     /**
-     * 音译人名识别
+     * url识别
      * @author sunpanpan
      */
     public List<Term> urlRecognition(String text) {
