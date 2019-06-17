@@ -9,6 +9,10 @@
 请求方式选择post，body中选择x-www-form-urlencoded，参数key为“sentence”，value为“你好，欢迎使用HanLP汉语处理包！”。
 同时，项目也准备了测试环境http://api.acgnfuns.com/hanlp/v1/hanlp/segment ，欢迎试用。
 
+## Links
+
+* [nlp_starter](https://github.com/sppsun/nlp_starter)
+
 ## Authors
 
 * **sppsun** - *Initial work* - [sppsun](https://github.com/sppsun)
