@@ -28,7 +28,7 @@ import org.springframework.cloud.stream.messaging.Source;
  * @author xiaolongzuo
  */
 @SpringBootApplication
-@CodelessScan("com.acgnfuns.entity")
+@CodelessScan("com.acgnfuns.entity.codeless")
 @EnableDiscoveryClient
 @EnableBinding({Source.class})
 @EnableFeignClients("com.acgnfuns.rest")
